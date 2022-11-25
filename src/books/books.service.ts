@@ -22,10 +22,8 @@ export class BooksService {
     //`This action returns all books`;
   }
 
-  async findOne(
-    id: number, // : Promise<Book>
-  ) {
-    // return await this.bookRepository.findOneBy({ id: id });
+  async findOne(id: number): Promise<Book | null> {
+    return await this.bookRepository.findOneBy({ id: id });
     //`This action returns a #${id} book`;
   }
 
