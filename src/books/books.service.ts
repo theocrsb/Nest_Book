@@ -34,13 +34,14 @@ export class BooksService {
   async update(id: number, updateBookDto: UpdateBookDto): Promise<Book> {
     const bookToUpdate = await this.findOne(id);
     bookToUpdate.dateParution = updateBookDto.dateParution;
-    return await this.bookRepository.save(updateBookDto);
+    return await this.bookRepository.save(bookToUpdate);
   }
 
-  async remove(
-    id: number, // : Promise<String>
-  ) {
-    // return await;
-    //`This action removes a #${id} book`;
+  async remove(id: number): Promise<string> {
+    const result = await this.bookRepository.delete({ id });
+    if (result.affected === 0) {
+      throw new NotFoundException(`No Books with id ${id}`);
+    }
+    return `This action removes a #${id} book`;
   }
 }
