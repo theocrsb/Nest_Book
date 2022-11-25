@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksModule } from './books/books.module';
 import * as dotenv from 'dotenv';
+import { Book } from './books/entities/book.entity';
 
 dotenv.config({ path: '.env' });
 
@@ -17,8 +18,8 @@ dotenv.config({ path: '.env' });
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [],
-      synchronize: true,
+      entities: [Book],
+      synchronize: process.env.MODE === 'DEV' ? true : false,
     }),
     BooksModule,
   ],

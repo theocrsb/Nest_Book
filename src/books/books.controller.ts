@@ -8,8 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { BooksService } from './books.service';
-import { CreateBookDto } from './dto/create-book.dto';
-import { UpdateBookDto } from './dto/update-book.dto';
+import { CreateBookDto } from './dto (dataTransfertObject)/create-book.dto';
+import { UpdateBookDto } from './dto (dataTransfertObject)/update-book.dto';
 
 @Controller('books')
 export class BooksController {
