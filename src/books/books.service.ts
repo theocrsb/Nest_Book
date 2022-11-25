@@ -17,23 +17,30 @@ export class BooksService {
     // 'This action adds a new book';
   }
 
-  async findAll(): Promise<Book> {
-    return await;
+  async findAll(): Promise<Book[]> {
+    return await this.bookRepository.find();
     //`This action returns all books`;
   }
 
-  async findOne(id: number): Promise<Book> {
-    return await;
+  async findOne(
+    id: number, // : Promise<Book>
+  ) {
+    // return await this.bookRepository.findOneBy({ id: id });
     //`This action returns a #${id} book`;
   }
 
-  async update(id: number, updateBookDto: UpdateBookDto): Promise<Book> {
-    return await;
+  async update(
+    id: number,
+    updateBookDto: UpdateBookDto, // : Promise<Book>
+  ) {
+    // return await;
     //`This action updates a #${id} book`;
   }
 
-  async remove(id: number): Promise<String> {
-    return await;
+  async remove(
+    id: number, // : Promise<String>
+  ) {
+    // return await;
     //`This action removes a #${id} book`;
   }
 }
